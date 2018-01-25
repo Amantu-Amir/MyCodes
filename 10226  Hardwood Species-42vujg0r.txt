@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int tc;cin>>tc;getchar();getchar();
+    string s;
+    while(tc--){
+        map<string , int > mp;
+        int count = 0;
+        while(getline(cin,s)){
+            if(s.empty())
+                break;
+            else{
+                mp[s]++;
+                count++;
+            }
+        }
+        map<string , int >::iterator it;
+        for(it = mp.begin(); it!=mp.end(); it++){
+            cout<<it->first<<" "<<fixed<<setprecision(4)<<((it->second * 100.0)/count)<<endl;
+        }
+        if(tc!=0)
+            cout<<endl;
+    }
+
+    return 0;
+}

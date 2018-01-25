@@ -1,0 +1,39 @@
+#include<iostream>
+#include<set>
+#include<cstdio>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+    int chosen,catagories,courses,must;
+    while(scanf("%d",&chosen)){
+        if(chosen==0)
+            return 0;
+        scanf("%d",&catagories);
+        int csn[chosen];
+        for(int i=0; i<chosen; i++)
+            scanf("%d",&csn[i]);
+        int found=0;
+        for(int i=1; i<=catagories; i++){
+            scanf("%d %d",&courses,&must);
+            int crs[courses]; int count = 0;
+            for(int i=0; i<courses; i++){
+                scanf("%d",&crs[i]);
+                for(int k=0; k<chosen; k++){
+                    if(crs[i]==csn[k]){
+                        count++;
+                        break;
+                    }
+                }
+            }
+            if(count>=must)
+                found++;
+        }
+        if(found==catagories)
+            printf("yes\n");
+        else
+            printf("no\n");
+    }
+    return 0;
+}

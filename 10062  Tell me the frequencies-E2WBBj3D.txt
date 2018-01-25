@@ -1,0 +1,42 @@
+#include<iostream>
+#include<map>
+#include<cstdio>
+#include<cctype>
+#include<vector>
+#include<algorithm>
+#include<fstream>
+using namespace std;
+int main()
+{
+    vector <int> v1,v;
+    for(int i=0; i<130; i++)
+        v1.push_back(0);
+    string s;int t=0;
+    while(getline(cin,s)){
+        if(t>0)
+            cout<<endl;
+        v = v1;
+        int len = s.size();
+        for(int i=0; i<len; i++)
+            v[s[i]]++;
+        while(1){
+            int mn = 1200;int found = 1;
+            for(int i=32; i<130; i++){
+                if(v[i]<mn && v[i]>0){
+                    found++;
+                    mn = v[i];
+                }
+            }
+            if(found==1)
+                break;
+            for(int i=130; i>30; i--){
+                if(v[i]==mn){
+                    printf("%d %d\n",i,mn);
+                    v[i]=-1;
+                }
+            }
+        }
+        t++;
+    }
+    return 0;
+}

@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+bool LeapYear(string str)
+{
+    int len = str.length();
+    int div4 = (str.at(len-2)-48)*10 + (str.at(len-1)-48);
+    bool div100 = false;
+    if(str.at(len-1)==48 && str.at(len-2)==48)
+        div100 = true;
+    bool div400 = false;
+    if(div100 == true && ((str.at(len-4)-48)*10 + (str.at(len-3)-48))%4 ==0)
+        div400 = true;
+    if ((div4%4 ==0 && div100 == false) || div400 == true)
+        return true;
+    else
+        return false;
+}
+bool Huluculu(string str)
+{
+    int sum = 0;
+    int len = str.length();
+    for(int i=0; i<len; i++)
+        sum = sum + (str.at(i)-48);
+    if(sum%3 == 0 && (str.at(len-1)=='0' || str.at(len-1)=='5'))
+        return true;
+    else
+        return false;
+}
+bool Bulukulu(string str)
+{
+    int len = str.length();
+    int even=0,odd=0;
+    for(int i=0;i<len;i+=2)
+        even = even + (str.at(i)-48);
+    for(int i=1;i<len;i+=2)
+        odd = odd + (str.at(i)-48);
+    if((even-odd)%11 == 0 && (str.at(len-1)=='0' || str.at(len-1)=='5'))
+        return true;
+    else
+        return false;
+}
+int main()
+{
+	string year;int t=0;
+	while(cin>>year){
+		bool leap = LeapYear(year);
+		bool hul = Huluculu(year);
+		bool bul = Bulukulu(year);
+		int p=0;
+		if(t>0)
+            cout<<endl;
+		if(leap == true){
+            cout<<"This is leap year."<<endl;
+            p++;
+		}
+		if(hul == true){
+            cout<<"This is huluculu festival year."<<endl;
+            p++;
+		}
+		if(bul == true && leap == true){
+            cout<<"This is bulukulu festival year."<<endl;
+            p++;
+		}
+		if(p==0)
+            cout<<"This is an ordinary year."<<endl;
+		t++;
+	}
+	return 0;
+}

@@ -1,0 +1,33 @@
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.*;
+
+class Main {
+
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        BigInteger fact[] = new BigInteger[1001];
+        int ara[] = new int[1001];ara[0] = ara[1] = 0;
+        fact[0] = BigInteger.valueOf(1);
+        fact[1] = BigInteger.valueOf(1);
+        String s;
+        BigInteger x;int n;
+        for(int i=2; i<1001; i++){
+            x = BigInteger.valueOf(i);
+            fact[i] = fact[i-1].multiply(x);
+            s = fact[i].toString();
+            int len = s.length();
+            int sum = 0;
+            for(int k=0; k<len; k++){
+                int a = s.charAt(k) -48;
+                sum+=a;
+            }
+            ara[i] = sum;
+        }
+        while(sc.hasNextInt()){
+            n = sc.nextInt();
+            System.out.println(ara[n]);
+        }
+
+    }
+}

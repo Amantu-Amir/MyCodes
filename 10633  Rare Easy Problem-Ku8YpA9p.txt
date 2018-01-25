@@ -1,0 +1,25 @@
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
+
+class Main {
+
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);// System.out.println();
+        BigDecimal d = new BigDecimal("1.1111111111111111111111");
+        BigDecimal b;
+        while(sc.hasNextBigDecimal()){
+            b = sc.nextBigDecimal();
+            if(b.compareTo(BigDecimal.valueOf(0)) == 0)
+                break;
+            b = b.multiply(d);
+            BigInteger s = b.toBigInteger();
+            System.out.print(s);
+            if(s.mod(BigInteger.valueOf(10)).compareTo(BigInteger.valueOf(9)) == 0 ){
+                System.out.print(" "+s.add(BigInteger.valueOf(1)));
+            }
+            System.out.println();
+        }
+    }
+}

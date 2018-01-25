@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cstdio>
+#include<queue>
+#include<fstream>
+using namespace std;
+///5000000
+int ara[500005];
+void generate()
+{
+    ara[1] = 1;
+    ara[2] = 2;
+    int i,j;
+    for( i=2; i<500005; i*=2){
+        for( j=1; i+j<=500005 && j<=i; j++){
+            ara[i+j] = j*2;
+        }
+    }
+}
+int main()
+{
+    generate();
+    int n;
+    while(cin>>n){
+        if(n==0)
+            return 0;
+        if(n<0)
+            cout<<0<<endl;
+        else
+            cout<<ara[n]<<endl;
+    }
+    return 0;
+}

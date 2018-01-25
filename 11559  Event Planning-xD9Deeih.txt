@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+    int n,b,h,w;
+    while(scanf("%d%d%d%d",&n,&b,&h,&w)!=EOF){
+    int i,j,price[h],bed,cost=b+5;
+    for(i=0;i<h;i++){
+        scanf("%d",&price[i]);
+        for(j=0;j<w;j++){
+            scanf("%d",&bed);
+            if(bed>=n){
+                if(n*price[i]<cost)
+                    cost=n*price[i];
+            }
+        }
+    }
+    if(cost<=b)
+        printf("%d\n",cost);
+    else
+        printf("stay home\n");
+}
+
+    return 0;
+}

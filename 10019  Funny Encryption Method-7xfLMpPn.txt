@@ -1,0 +1,44 @@
+#include<iostream>
+#include<cmath>
+#include<stack>
+using namespace std;
+long long int  countOnes(long long int  N)
+{
+  long long int  result = 0;
+  while (N!=0){
+    N%2==1 ? result++ : result ;;
+    N/=2;
+  }
+  return result;
+}
+long long int  toDecimal(long long int  a)
+{
+    stack < long long int  > s;
+    long long int  temp = a;
+    while(temp!=0){
+        s.push(temp%10);
+        temp/=10;
+    }
+    long long int  num = 0;
+    long long int  p=0;
+    while(!s.empty()){
+        num = num + (s.top() * pow(16,p));
+        s.pop();
+        p++;
+    }
+    return num;
+}
+int  main()
+{
+    long long int  test;
+    cin>>test;long long int  num;
+    for(long long int  t=1; t<= test; t++){
+        cin>>num;
+        long long int  b1 = countOnes(num);
+        num = toDecimal(num);
+        long long int  b2 = countOnes(num);
+        cout<<b1<<" "<<b2<<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int summing(long long int num)
+{
+    int sum=0;
+    while(num!=0){
+        sum+=(num%10);
+        num/=10;
+    }
+    return sum;
+}
+int main()
+{
+    long long int num;
+    while(cin>>num){
+        if(num == 0)
+            return 0;
+        while(num/10 != 0){
+            num = summing(num);
+        }
+        cout<<num<<endl;
+    }
+
+    return 0;
+}

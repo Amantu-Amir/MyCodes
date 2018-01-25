@@ -1,0 +1,30 @@
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.*;
+
+class Main {
+
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int tc,n,div;
+        tc = sc.nextInt();
+        BigInteger b,a,p;
+        BigInteger zero = new BigInteger("0");
+        for(int t=1; t<=tc; t++){
+            b = sc.nextBigInteger();
+            n = sc.nextInt();
+            div = 0;
+            for(int i=0; i<n; i++){
+                a = sc.nextBigInteger();
+                p = b.mod(a);
+                if( zero.equals(p))
+                    div++;
+            }
+            System.out.print(b);
+            if(div == n)
+                System.out.println(" - Wonderful.");
+            else
+                System.out.println(" - Simple.");
+        }
+    }
+}

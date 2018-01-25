@@ -1,0 +1,37 @@
+#include<cstdio>
+#include<iostream>
+using namespace std;
+long long int ara[15];
+int factorial()
+{
+    ara[0]=1;
+    long long int sum=1;
+    for(long int i=1; i<=15; i++){
+        sum*=i;
+        ara[i]=sum;
+    }
+}
+int main()
+{
+    factorial();
+    int n;
+    while(cin>>n){
+        int flag = 0;
+        if(n<0){
+            int x=n*(-1);
+            if(x%2==1)
+                cout<<"Overflow!"<<endl;
+            else
+                cout<<"Underflow!"<<endl;
+        }
+        else{
+            if(n<8)
+                cout<<"Underflow!"<<endl;
+            else if(n>13)
+                cout<<"Overflow!"<<endl;
+            else
+                cout<<ara[n]<<endl;
+        }
+    }
+    return 0;
+}

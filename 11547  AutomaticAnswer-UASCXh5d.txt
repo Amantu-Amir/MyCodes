@@ -1,0 +1,15 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+    int test,num;
+    cin>>test;
+    for(int i=1; i<=test; i++){
+        cin>>num;
+        long long temp = (((num*63)+7492)*5)-498;
+        cout<<abs(temp%100)/10<<endl;
+    }
+
+    return 0;
+}

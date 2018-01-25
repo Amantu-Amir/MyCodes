@@ -1,0 +1,21 @@
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.Scanner;
+
+
+class Main {
+
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);// System.out.println();
+        int n = 4800;
+        BigInteger ara[] = new BigInteger[n];
+        ara[0] = BigInteger.valueOf(1);
+        ara[1] = BigInteger.valueOf(1);
+        for(int i=2; i<n; i++)
+            ara[i] = ara[i-1].add(ara[i-2]);
+        while(sc.hasNextInt()){
+            n = sc.nextInt();
+            System.out.println(ara[n-1]);
+        }
+    }
+}

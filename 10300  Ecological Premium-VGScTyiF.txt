@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+    int test;
+    while(scanf("%d",&test)!=EOF){
+        while(test--){
+            int farmers;
+            scanf("%d",&farmers);
+            int size[farmers],animals[farmers],env[farmers],i;
+            long long int premium=0;
+            for(i=0;i<farmers;i++){
+                scanf("%d%d%d",&size[i],&animals[i],&env[i]);
+            }
+            for(i=0;i<farmers;i++){
+                premium+=(size[i]*env[i]);
+            }
+            printf("%lld\n",premium);
+        }
+    }
+    return 0;
+}

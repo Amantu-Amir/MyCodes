@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    long long decimal;
+    int ternary[30];
+    while(1){
+        cin>>decimal;
+        if(decimal<0)
+        return 0;
+        int i = -1;
+        if(decimal == 0)
+            cout<<0<<endl;
+        else{
+            while(decimal !=0){
+                int temp = decimal%3;
+                ternary[++i] = temp;
+                decimal = decimal/3;
+
+            }
+            for(int k = i; k>=0 ;k--)
+                cout<<ternary[k];
+            cout<<endl;
+        }
+    }
+}

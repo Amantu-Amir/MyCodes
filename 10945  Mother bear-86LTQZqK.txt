@@ -1,0 +1,41 @@
+#include<iostream>
+#include<cstdio>
+#include<cctype>
+#include<fstream>
+using namespace std;
+bool Palindrome(string str)
+{
+    string s="";
+    int len = str.size();
+    for(int i=0; i<len; i++){
+        if(isupper(str[i]))
+            str[i] = tolower(str[i]);
+        if(isalpha(str[i])){
+            char c = str[i];
+            s+=c;
+        }
+    }
+
+    len = s.size();
+    int x = len/2;
+    for(int i=0; i<x; i++){
+        if(s[i]!=s[len-i-1])
+            return false;
+    }
+    return true;
+}
+
+int main()
+{
+    string s;bool pal;
+    while(getline(cin,s)){
+        if(s=="DONE")
+            return 0;
+        pal = Palindrome(s);
+        if(pal)
+            cout<<"You won't be eaten!"<<endl;
+        else
+            cout<<"Uh oh.."<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int happy(long long int num)
+{
+    int sum;
+    while(num>=7){
+        long long int temp=num;
+        sum=0;
+        while(temp!=0){
+            int p=temp%10;
+            temp/=10;
+            sum+=(p*p);
+            //cout<<sum<<endl;
+        }
+        num=sum;
+    }
+    return num;
+}
+int main()
+{
+    long long int num;
+    int test;cin>>test;
+    for(int t=1; t<= test; t++){
+        cin>>num;
+        int a = happy(num);
+        if(a==1)
+            printf("Case #%d: %lld is a Happy number.\n",t,num);
+        else
+            printf("Case #%d: %lld is an Unhappy number.\n",t,num);
+    }
+    return 0;
+}

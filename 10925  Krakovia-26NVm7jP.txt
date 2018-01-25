@@ -1,0 +1,100 @@
+#include<iostream>
+#include<cstdio>
+#include<string>
+#include<algorithm>
+using namespace std;
+string add(string s, string str)
+{
+    string sum = "";
+
+    int len1 = s.length();
+    int len2 = str.length();
+
+    reverse(s.begin(),s.end());
+    reverse(str.begin(),str.end());
+
+    int x = len1<=len2 ? len1 : len2;
+    int carry = 0;int a,b,i;
+    for(i=0; i<x; i++){
+        a = s[i]-48;
+        b = str[i]-48;
+        int p = a+b+carry;
+        if(p>=10){
+            carry = 1;
+            p%=10;
+        }
+        else
+            carry = 0;
+        sum+=(p+48);
+    }
+    if(len1>len2){
+        for(i; i<len1; i++){
+            a = s[i]-48;
+            int p = a+carry;
+            if(p>=10){
+                carry = 1;
+                p%=10;
+            }
+            else
+                carry = 0;
+            sum+=(p+48);
+        }
+    }
+    if(len1<len2){
+        for(i; i<len2; i++){
+            a = str[i]-48;
+            int p = a+carry;
+            if(p>=10){
+                carry = 1;
+                p%=10;
+            }
+            else
+                carry = 0;
+            sum+=(p+48);
+        }
+    }
+    if(carry == 1)
+        sum+=(carry+48);
+    reverse(sum.begin(),sum.end());
+    return sum;
+}
+string divide(string s, int x)
+{
+    string q = "";int a = 0;
+    int len  = s.length();
+    for(int i=0; i<len; i++){
+        a = (a*10)+(s[i]-48);
+        if(a>=x){
+            int p = a/x;
+            q+=(p+48);
+            a%=x;
+        }
+        else{
+            if(q.size()!=0){
+                q+="0";
+            }
+        }
+    }
+    if(q.length()==0)
+        q+="0";
+    return q;
+}
+
+int main()
+{
+    int a,b;int t=1;
+    while(cin>>a>>b){
+        if(a==0 && b==0)
+            return 0;
+        string sum = "0";
+        string s;
+        for(int i=1; i<=a; i++){
+            cin>>s;
+            sum = add(sum,s);
+        }
+        string per = divide(sum,b);
+        cout<<"Bill #"<<t++<<" costs "<<sum<<": each friend should pay "<<per<<endl<<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int dial,c1,c2,c3,degree;
+    while(cin>>dial>>c1>>c2>>c3){
+        if(dial==0 && c1==0 && c2==0 && c3==0)
+            return 0;
+        int diff1,diff2,diff3;
+
+        diff1 = c1-dial;
+        if(diff1<=0)
+            diff1+=40;
+
+        diff2 =  c1-c2;
+        if(diff2<=0)
+            diff2= 40-diff2;
+        if(diff2>=40){
+            int temp = diff2-40;
+            diff2 = 40-temp;
+        }
+        diff3 =  c3-c2;
+
+        if(diff3<=0)
+            diff3+=40;
+
+        int total;
+        total = diff1+diff2+diff3;
+        total*=9;
+        degree = 2160 - total;
+        cout<<degree<<endl;
+    }
+
+    return 0;
+}

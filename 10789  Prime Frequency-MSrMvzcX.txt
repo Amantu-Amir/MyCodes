@@ -1,0 +1,47 @@
+#include<iostream>
+#include<cstring>
+#include<algorithm>
+#include<cmath>
+using namespace std;
+bool isprime(int n)
+{
+    if(n==1)
+        return false;
+    if(n==2)
+        return true;
+    int p = sqrt(n);
+    for(int i=2; i<=p;i++){
+            if(n%i == 0)
+                return false;
+    }
+    return true;
+}
+int main()
+{
+    int test;cin>>test;
+    char str[5000];
+    for(int t=1; t<= test; t++){
+        cin>>str;int len = strlen(str);
+        sort(str,str+len);
+        char primef[100];int c=-1,i;
+        for(int l=0; l<len; l=i){
+            int p=1;
+            for( i=l+1;i<len;i++){
+                if(str[l]==str[i])
+                    p++;
+                else
+                    break;
+            }
+            if(isprime(p)==true){
+                primef[++c]= str[l];
+            }
+
+        }
+        primef[++c]='\0';
+        if(strlen(primef)==0)
+            cout<<"Case "<<t<<": "<< "empty" <<endl;
+        else
+            cout<<"Case "<<t<<": "<< primef <<endl;
+    }
+    return 0;
+}

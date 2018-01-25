@@ -1,0 +1,26 @@
+#include<iostream>
+#include<cmath>
+#include<cstdio>
+
+using namespace std;
+long long int BigMod(long long int a,long long int b, long long int p)
+{
+    if(b==0) return 1;
+    long long int x = BigMod(a,b/2,p)%p;
+    x = (x*x)%p;
+    if(b%2==0)  return x;
+    else    return (x*a)%p;
+}
+int main()
+{
+    int tc;long long int x,y,n,ans;/// x pow y  mod n
+    while(scanf("%d",&tc),tc){
+        for(int t=1; t<= tc; t++){
+            scanf("%lld %lld %lld",&x,&y,&n);
+            ans = BigMod(x,y,n);
+            printf("%lld\n",ans);
+        }
+    }
+
+    return 0;
+}

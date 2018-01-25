@@ -1,0 +1,38 @@
+#include<iostream>
+#include<cmath>
+#include<cstdio>
+#define MAX 18409210
+using namespace std;
+char prime[MAX]={0};
+void primeGenerator(long long int n )
+{
+    int x = sqrt( n );
+    prime[0] = prime[1] = 1;
+    for( int i = 4; i <= n; i += 2 )
+        prime[i] = 1;
+    for( int i = 3; i <= x; i += 2 ) {
+        if( prime[i] == 0 ) {
+            for( int j = i+i; j <= n; j += i ){
+                prime[j] = 1;
+            }
+        }
+    }
+    return;
+}
+
+int main()
+{
+    primeGenerator(18409210);
+    long long int i;int t=1;int twin[100002];
+    for(int p=3; p<=MAX; p+=2){
+        if(prime[p]==0 && prime[p+2]==0)
+            twin[t++]=p;
+    }
+    while(scanf("%lld",&i)!=EOF){
+        if(i<=0 || i>100000)
+            printf("(%d, %d)\n",0,0);
+        else
+            printf("(%d, %d)\n",twin[i],twin[i]+2);
+    }
+    return 0;
+}

@@ -1,0 +1,106 @@
+#include<iostream>
+#include<cstdio>
+#include<string>
+#include<algorithm>
+#include<fstream>
+using namespace std;
+string add(string s, string str)
+{
+    string sum = "";
+
+    int len1 = s.length();
+    int len2 = str.length();
+
+    reverse(s.begin(),s.end());
+    reverse(str.begin(),str.end());
+
+    int x = len1<=len2 ? len1 : len2;
+    int carry = 0;int a,b,i;
+    for(i=0; i<x; i++){
+        a = s[i]-48;
+        b = str[i]-48;
+        int p = a+b+carry;
+        if(p>=10){
+            carry = 1;
+            p%=10;
+        }
+        else
+            carry = 0;
+        sum+=(p+48);
+    }
+    if(len1>len2){
+        for(i; i<len1; i++){
+            a = s[i]-48;
+            int p = a+carry;
+            if(p>=10){
+                carry = 1;
+                p%=10;
+            }
+            else
+                carry = 0;
+            sum+=(p+48);
+        }
+    }
+    if(len1<len2){
+        for(i; i<len2; i++){
+            a = str[i]-48;
+            int p = a+carry;
+            if(p>=10){
+                carry = 1;
+                p%=10;
+            }
+            else
+                carry = 0;
+            sum+=(p+48);
+        }
+    }
+    if(carry == 1)
+        sum+=(carry+48);
+    reverse(sum.begin(),sum.end());
+    return sum;
+}
+string normalize(string s)
+{
+    if(s[0]!='0')
+        return s;
+    int len = s.size();
+    reverse(s.begin(),s.end());
+    for(int i=len-1; i>0 && s[i]=='0'; i--){
+        s.erase(s.begin() + i);
+    }
+
+    if(s.size()==0)
+        s = "0";
+    else
+        reverse(s.begin(),s.end());
+
+    return s;
+}
+string multiply(string a, string b)
+{
+    string product = "";
+    int len = a.size() - 1 ;
+    while(len>=0){
+        int p = a[len]-48;
+        int i;
+        string temp = "0";
+        for(i=1; i<=p; i++){
+            temp = add(temp, b);
+        }
+        product  = add(product , temp);
+        b = b + "0";
+        len--;
+    }
+    product = normalize(product);
+    return product;
+}
+int main()
+{
+    string a,b;
+
+    while(cin>>a>>b){
+       cout<<multiply(a,b)<<endl;
+    }
+
+    return 0;
+}

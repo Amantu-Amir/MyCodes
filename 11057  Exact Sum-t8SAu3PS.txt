@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n, p;
+    while(cin>>n){
+        int ara[n];
+        for(int i=0; i<n; i++)
+            cin>>ara[i];
+        cin>>p;
+        sort(ara,ara+n);
+        int a=ara[0],b=ara[n-1],diff = b-a,mid;
+        for(int i=0; i<n-1 && ara[i]<=p/2; i++){
+            int find = p - ara[i];
+            int start = i+1;
+            int end = n-1;
+            while(start<=end){
+                mid = (start+end)/2;
+                if(ara[mid] == find){
+                    if(find-ara[i] < diff){
+                        a = ara[i];
+                        b = find;
+                        diff = b-a;
+                    }
+                    break;
+                }
+
+                else if(ara[mid] > find)
+                    end = mid-1;
+                else
+                    start = mid+1;
+            }
+        }
+        printf("Peter should buy books whose prices are %d and %d.\n\n",a,b);
+    }
+
+    return 0;
+}

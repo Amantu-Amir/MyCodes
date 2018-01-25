@@ -1,0 +1,28 @@
+#include<iostream>
+#include<stack>
+#include<cstdio>
+#include<fstream>
+using namespace std;
+long long int ara[220000000];
+
+void generate()
+{
+    ara[0]=1;ara[1] = 2;
+    for(long long int i=2; i<220000000; i++)
+        ara[i] = ara[i-2] + (i*2)-1;
+}
+int main()
+{
+
+    generate();
+    int n;long long int ans;
+    while(cin>>n){
+        if(n<0)
+            return 0;
+        else {
+            cout<<ara[n]<<endl;
+        }
+    }
+
+    return 0;
+}

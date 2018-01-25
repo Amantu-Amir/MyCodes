@@ -1,0 +1,29 @@
+#include<iostream>
+#include<cstdio>
+#include<vector>
+#include<algorithm>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+    long int a,b;
+    vector<long int> v,weight;
+    while(cin>>a>>b){
+        v.push_back(b-a);
+        weight.push_back(a);
+    }
+
+    int len = v.size();
+    sort(v.begin(),v.end());
+    sort(weight.begin(),weight.end());
+    int large = v[len-1];
+    long int total = 0;int i;
+    for( i=0; i<len-1 && total<large; i++)
+        total+=weight[i];
+    if(total>large)
+        i--;
+    cout<<i<<endl;
+
+    return 0;
+}

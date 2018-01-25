@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int ara[100001]={0};
+void Square_generate()
+{
+    for(int i =1; ; i++){
+        if(i*i > 100000)
+            break;
+        else
+            ara[i*i] = 1;
+    }
+}
+int main()
+{
+    Square_generate();
+    int a,b,squares;
+    while(1){
+        cin>>a>>b;
+        if(a==0 && b==0)
+            return 0;
+        squares = 0;
+        for(int i=a; i<=b; i++){
+            if(ara[i]==1)
+                squares++;
+        }
+        cout<<squares<<endl;
+    }
+
+    return 0;
+}

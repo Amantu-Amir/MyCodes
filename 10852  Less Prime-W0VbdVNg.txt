@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 10003
+int prime[MAX];
+void prime_generate() {
+    int i, p, c;
+    for (i = 0; i < MAX; ++i) prime[i] = 1;
+    for (p = 2; p < MAX; ++p) {
+        if (prime[p])
+            for (c = 2 * p; c < MAX; c += p)
+                prime[c] = 0;
+    }
+}
+int main()
+{
+    prime_generate();
+    int num;int test;
+    scanf("%d",&test);
+    for(int t=1; t<= test; t++){
+        scanf("%d",&num);
+        int q = (num/2)+1;
+        for(int i= q; ; i++){
+            if(prime[i]==1){
+                printf("%d\n",i);
+                break;
+            }
+        }
+    }
+    return 0;
+}

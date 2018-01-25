@@ -1,0 +1,17 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main()
+{
+    long long int n,k;
+    while(scanf("%lld%lld",&n,&k)!=EOF){
+        long long int cig = n;
+        while(n>=k){
+            cig+=(n/k);
+            n = (n/k)+(n%k);
+        }
+        cout<<cig<<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	long long int a,b;
+	while(cin>>a>>b){
+		if(a==0 && b==0)
+			return 0;
+		int hand = 0;int temp1,temp2;int carry = 0;
+		while(a>0 || b>0){
+			temp1 = a%10;
+			temp2 = b%10;
+			int total = temp1+temp2+hand;
+			if(total > 9)
+				carry++;
+			hand = total/10;
+			a/=10,b/=10;
+		}
+		if(carry == 0)
+			cout<<"No carry operation."<<endl;
+		else if(carry == 1)
+			cout<<carry<<" carry operation."<<endl;
+		else
+			cout<<carry<<" carry operations."<<endl;
+	}
+	return 0;
+}

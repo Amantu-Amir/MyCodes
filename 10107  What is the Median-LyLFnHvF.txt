@@ -1,0 +1,28 @@
+#include<iostream>
+#include<cstdio>
+#include<vector>
+#include<algorithm>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+    unsigned long long int a;
+    vector <unsigned long long int> v;
+    while(cin>>a){
+        v.push_back(a);
+        sort(v.begin(),v.end());
+        int len = v.size();
+        if(len%2==1){
+            cout<<v[len/2]<<endl;
+        }
+        else{
+            unsigned long long int p = (v[len/2])/2 + (v[len/2 -1])/2;
+            if((v[len/2])%2==1 && (v[len/2 -1])%2==1)
+                p++;
+            cout<<p<<endl;
+        }
+    }
+
+    return 0;
+}

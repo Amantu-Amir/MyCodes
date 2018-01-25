@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+
+    long long int i=0,num,ans;
+    while(scanf("%lld",&num)){
+        //system("COLOR FC");
+        if(num==0)
+            return 0;
+        else{
+            i+=1;
+            printf("Case %lld: %lld\n",i,num/2);
+        }
+
+    }
+    return 0;
+}

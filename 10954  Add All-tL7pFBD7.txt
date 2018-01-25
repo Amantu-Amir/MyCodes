@@ -1,0 +1,30 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+
+int main()
+{
+    int size;
+    while(cin>>size && size !=0){
+        priority_queue<long long int>pq,t;
+        long long int num,temp,sum,total_cost = 0;;
+        for(int i=1; i<= size; i++){
+            cin>>num;
+            pq.push(-num);
+        }
+        num = pq.top();
+        pq.pop();
+        while(!pq.empty()){
+            temp = pq.top();
+            pq.pop();
+            sum = num + temp;
+            total_cost+=(-sum);
+            pq.push(sum);
+            t=pq;
+            num = pq.top();
+            pq.pop();
+        }
+        cout<<total_cost<<endl;
+    }
+    return 0;
+}

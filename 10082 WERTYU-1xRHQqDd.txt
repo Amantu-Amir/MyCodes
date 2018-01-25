@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	string str;
+	while(getline(cin,str)){
+		int len = str.length();
+		for(int i=0; i<len; i++){
+			if(str.at(i)=='=')
+				str.at(i) = '-';
+			else if(str.at(i)=='-')
+				str.at(i) = '0';
+			else if(str.at(i)=='0')
+				str.at(i) = '9';
+			else if(str.at(i)=='9')
+				str.at(i) = '8';
+			else if(str.at(i)=='8')
+				str.at(i) = '7';
+			else if(str.at(i)=='7')
+				str.at(i) = '6';
+			else if(str.at(i)=='6')
+				str.at(i) = '5';
+			else if(str.at(i)=='5')
+				str.at(i) = '4';
+			else if(str.at(i)=='4')
+				str.at(i) = '3';
+			else if(str.at(i)=='3')
+				str.at(i) = '2';
+			else if(str.at(i)=='2')
+				str.at(i) = '1';
+			else if(str.at(i)=='1')
+				str.at(i) = '`';
+			if(str.at(i)==92)
+				str.at(i) = ']';
+			else if(str.at(i)==']')
+				str.at(i) = '[';
+			else if(str.at(i)=='[')
+				str.at(i) = 'P';
+			else if(str.at(i)=='P')
+				str.at(i) = 'O';
+			else if(str.at(i)=='O')
+				str.at(i) = 'I';
+			else if(str.at(i)=='I')
+				str.at(i) = 'U';
+			else if(str.at(i)=='U')
+				str.at(i) = 'Y';
+			else if(str.at(i)=='Y')
+				str.at(i) = 'T';
+			else if(str.at(i)=='T')
+				str.at(i) = 'R';
+			else if(str.at(i)=='R')
+				str.at(i) = 'E';
+			else if(str.at(i)=='E')
+				str.at(i) = 'W';
+			else if(str.at(i)=='W')
+				str.at(i) = 'Q';
+			else if(str.at(i)==39)
+				str.at(i) = ';';
+			else if(str.at(i)==';')
+				str.at(i) = 'L';
+			else if(str.at(i)=='L')
+				str.at(i) = 'K';
+			else if(str.at(i)=='K')
+				str.at(i) = 'J';
+			else if(str.at(i)=='J')
+				str.at(i) = 'H';
+			else if(str.at(i)=='H')
+				str.at(i) = 'G';
+			else if(str.at(i)=='G')
+				str.at(i) = 'F';
+			else if(str.at(i)=='F')
+				str.at(i) = 'D';
+			else if(str.at(i)=='D')
+				str.at(i) = 'S';
+			else if(str.at(i)=='S')
+				str.at(i) = 'A';
+			else if(str.at(i)=='/')
+				str.at(i) = '.';
+			else if(str.at(i)=='.')
+				str.at(i) = ',';
+			else if(str.at(i)==',')
+				str.at(i) = 'M';
+			else if(str.at(i)=='M')
+				str.at(i) = 'N';
+			else if(str.at(i)=='N')
+				str.at(i) = 'B';
+			else if(str.at(i)=='B')
+				str.at(i) = 'V';
+			else if(str.at(i)=='V')
+				str.at(i) = 'C';
+			else if(str.at(i)=='C')
+				str.at(i) = 'X';
+			else if(str.at(i)=='X')
+				str.at(i) = 'Z';
+		}
+		cout<<str<<endl;
+	}
+	return 0;
+}

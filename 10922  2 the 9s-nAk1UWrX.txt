@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    string str;long long int num;
+    while(cin>>str){
+        if(str.length()==1 && str[0]=='0')
+            break;
+        num=0;int l= str.length();
+        for(int i=0; i<l; i++)
+            num+=(str[i]-48);
+        if(num%9==0){
+            int degree = 1;
+            while(num>9 && num%9==0){
+                int sum=0;
+                while(num!=0){
+                    sum+=(num%10);
+                    num/=10;
+                }
+                if(sum%9 == 0){
+                    num=sum;
+                    degree++;
+                }
+                else
+                    break;
+            }
+
+            cout<<str<<" is a multiple of 9 and has 9-degree "<<degree<<"."<<endl;
+        }
+        else
+            cout<<str<<" is not a multiple of 9."<<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+    int t,n,k;
+    scanf("%d",&t);
+    for(k =1; k<=t; k++){
+        scanf("%d",&n);
+        int ara[n],i,j,sum,abv;
+        float avg,abvavg;
+        for(i=sum=0;i<n;i++){
+            scanf("%d",&ara[i]);
+            sum+=ara[i];
+        }
+        avg=sum/(float)n;
+        for(i=abv=0;i<n;i++){
+            if(ara[i]>avg)
+                abv++;
+        }
+        abvavg=abv/(float)n;
+        printf("%.3f%%\n",abvavg*100);
+    }
+
+    return 0;
+}

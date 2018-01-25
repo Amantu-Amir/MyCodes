@@ -1,0 +1,34 @@
+#include<stdio.h>
+long long int reverse(long long int num)
+{
+    long long int rev=0;
+    while(num!=0){
+        rev=(rev*10) + (num%10);
+        num/=10;
+    }
+    return rev;
+}
+
+int main()
+{
+    int test;
+    scanf("%d",&test);
+    while(test--){
+        long long int num,rev,additions=0,result,temp;
+        scanf("%lld",&num);
+        rev=reverse(num);
+        temp=rev+num;
+        additions++;
+        while(temp!=reverse(temp)){
+            num=temp;
+            rev=reverse(num);
+            temp=rev+num;
+            additions++;
+        }
+        printf("%lld %lld\n",additions,temp);
+
+    }
+
+
+    return 0;
+}

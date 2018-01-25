@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    long long int n;
+    while(cin>>n){
+        if(n==0)
+            return 0;
+        long long int x = ((n+1)/2) * ((n+1)/2);
+        long long int sum = 6*x - 9;
+        cout<<sum<<endl;
+    }
+
+    return 0;
+}

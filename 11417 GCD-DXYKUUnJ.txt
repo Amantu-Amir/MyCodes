@@ -1,0 +1,28 @@
+#include<stdio.h>
+int GCD(int a,int b)
+{
+    int temp;
+    while(a%b !=0){
+        temp=a%b;
+        a=b;
+        b=temp;
+    }
+    return b;
+}
+int main()
+{
+    int N;
+    while(scanf("%d",&N)){
+        if(N==0)
+            return 0;
+        long long G=0;
+        int i,j;
+        for(i=1;i<N;i++)
+        for(j=i+1;j<=N;j++){
+            G+=GCD(i,j);
+        }
+        printf("%lld\n",G);
+    }
+
+    return 0;
+}

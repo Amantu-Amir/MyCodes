@@ -1,0 +1,17 @@
+#include  <bits/stdc++.h>
+#define PI 3.14159
+using namespace std;
+
+int main()
+{
+    int tc;cin>>tc;int n;
+    while(tc--){
+        cin>>n;
+        long long int ans = floor((log(2*PI*n)/2 + n*(log(n) - 1) + 1/(12*n))/log(10)) + 1;
+        if(n==1)
+            ans = 1;
+        cout<< ans <<endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include<iostream>
+#include<set>
+#include<cstdio>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+    string s;int i,j,n,x=0,a,b;char c;
+    while(cin>>s){
+        scanf("%d",&n);
+        printf("Case %d:\n",++x);
+        for(int t=1; t<=n; t++){
+            scanf("%d%d",&i,&j);
+            a = min(i,j);
+            b = max(i,j);
+            c = s[a];
+            bool z = true;
+            for(int j=a+1; j<=b ; j++){
+                if(s[j]!=c){
+                    z = false;
+                    break;
+                }
+            }
+            if(z)
+                printf("Yes\n");
+            else
+                printf("No\n");
+        }
+    }
+
+    return 0;
+}

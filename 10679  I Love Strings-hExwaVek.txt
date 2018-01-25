@@ -1,0 +1,22 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+using namespace std;
+int main()
+{
+    char str[100000] ,sub[1000];
+    int n,q;
+    scanf("%d",&n);
+    for(int i=1; i<=n; i++){
+        scanf("%s",str);
+        scanf("%d",&q);
+        for(int p=1; p<=q; p++){
+            scanf("%s",sub);
+            if(strstr(str,sub)!=NULL)
+                printf("y\n");
+            else
+                printf("n\n");
+        }
+    }
+    return 0;
+}

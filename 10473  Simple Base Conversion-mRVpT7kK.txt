@@ -1,0 +1,26 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+    char str[20];
+    while(cin>>str){
+        bool x=false;
+        int len = strlen(str);
+        if(len>=2 && str[0]=='0' && str[1]=='x')
+            x=true;
+        if(str[0]=='-')
+            return 0;
+        if(x==true){
+            long int hex = strtol(str,NULL,16);
+            printf("%ld\n",hex);
+        }
+        else{
+            long int dec = atol(str);
+            printf("0x%lX\n",dec);
+        }
+    }
+    return 0;
+}

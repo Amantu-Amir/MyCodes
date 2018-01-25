@@ -1,0 +1,43 @@
+#include<string>
+#include<iostream>
+#include<cmath>
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+
+long long int GCD(long long int a, long long int b)
+{
+    if(b == 0) return a;
+    return GCD(b, a % b);
+}
+
+int main()
+{
+    int tc;cin>>tc;
+    string s1,s2;long long int S1,S2,gcd;int a;
+    for(int t=1; t<=tc; t++){
+        cin>>s1>>s2;
+        int len1 = s1.size();
+        int len2 = s2.size();
+
+        S1 = S2 = 0;
+        for(int i=len1-1,x = 0; i>=0; i--,x++){
+            if(s1[i]=='0') a = 0;
+            else a = 1;
+            S1 = S1 + a*pow(2,x);
+        }
+
+        for(int i=len2-1,x = 0; i>=0; i--,x++){
+            if(s2[i]=='0') a = 0;
+            else a = 1;
+            S2 = S2 + a*pow(2,x);
+        }
+        gcd = GCD(S1,S2);
+        if(gcd > 1)
+            printf("Pair #%d: All you need is love!\n",t);
+        else
+            printf("Pair #%d: Love is not all you need!\n",t);
+    }
+
+    return 0;
+}

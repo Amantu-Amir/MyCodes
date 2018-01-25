@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int tc;cin>>tc;getchar();getchar();
+    string s,x;
+    for(int t=1; t<=tc; t++){
+        if(t!=1) cout<<endl;
+        printf("Case #%d:\n",t);
+
+        while(getline(cin,s)){
+            if(s.empty()){
+                break;
+            }
+            else{
+                vector<string>v;
+                int len = s.size();
+                for(int i=0; i<len; i++){
+                    x = "";
+                    while(isalpha(s[i]) && i<len){
+                        x+=s[i];
+                        i++;
+                    }
+                    if(!x.empty()){
+                        if(i!=len) i--;
+                        v.push_back(x);
+                    }
+                }
+                x = "";
+                len = v.size();int p=0;
+                for(int i=0; i<len; i++){
+                    if(v[i].size()>p){
+                        x+=v[i][p];
+                        p++;
+                    }
+                }
+                cout<<x<<endl;
+            }
+        }
+
+    }
+    return 0;
+}

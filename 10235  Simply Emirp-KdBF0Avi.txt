@@ -1,0 +1,46 @@
+#include<iostream>
+#include<cmath>
+#include<cstdio>
+#define MAX 1000001
+using namespace std;
+char prime[MAX]={0};
+void primeGenerator( int n )
+{
+    int x = sqrt( n );
+    prime[0] = prime[1] = 1;
+    for( int i = 4; i <= n; i += 2 )
+        prime[i] = 1;
+    for( int i = 3; i <= x; i += 2 ) {
+        if( prime[i] == 0 ) {
+            for( int j = i+i; j <= n; j += i )
+                prime[j] = 1;
+        }
+    }
+    return;
+}
+int reverse_(int num)
+{
+    int rev=0;
+    while(num!=0){
+        rev = rev*10 +num%10;
+        num/=10;
+    }
+    return rev;
+}
+int main()
+{
+    primeGenerator(1000000);
+    int i;
+    while(scanf("%d",&i)!=EOF){
+        if(prime[i]==0){
+            int rev = reverse_(i);
+            if(rev != i && prime[rev]==0)
+                cout<<i<<" is emirp."<<endl;
+            else
+                cout<<i<<" is prime."<<endl;
+        }
+        else
+            cout<<i<<" is not prime."<<endl;
+    }
+    return 0;
+}

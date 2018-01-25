@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<string.h>
+int ara[26]={0};
+int main()
+{
+    char ar[26];
+    int i,j,a;
+    for(i=0,a=65;i<26;i++,a++)
+        ar[i]=a;
+    int test;char str[100];
+    scanf("%d",&test);
+    getchar();
+    while(test--){
+        scanf("%[^\n]",str);
+    getchar();
+        int len=strlen(str);
+        for(i=0;i<len;i++){
+            char c='a';char d='A';
+            for(j=0;j<26;j++,c++,d++){
+                if(str[i]==c||str[i]==d)
+                    ara[j]++;
+                }
+        }
+    }
+    int new_ara[26];char new_ar[26];
+    for(i=0,j=-1;i<26;i++)
+    if(ara[i]>0){
+            j++;
+            new_ara[j]=ara[i];
+            new_ar[j]=ar[i];
+    }
+    int p=0,k,tem;char y;
+    for(i=0;i<=j;i++){
+        for(k=i+1; k<=j; k++){
+            if((new_ara[i]<new_ara[k])){
+                tem=new_ara[k];
+                new_ara[k]=new_ara[i];
+                new_ara[i]=tem;
+
+                y=new_ar[k];
+                new_ar[k]=new_ar[i];
+                new_ar[i]=y;
+            }
+            else if(new_ara[i]==new_ara[k]){
+                if(new_ar[i]>new_ar[k]){
+                    tem=new_ara[k];
+                    new_ara[k]=new_ara[i];
+                    new_ara[i]=tem;
+
+                    y=new_ar[k];
+                    new_ar[k]=new_ar[i];
+                    new_ar[i]=y;
+                }
+            }
+        }
+    }
+    for(i=0;i<=j;i++)
+        printf("%c %d\n",new_ar[i],new_ara[i]);
+
+    return 0;
+}

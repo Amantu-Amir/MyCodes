@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int ara[35];
+int binary(long long num)
+{
+    int p=-1;int temp;
+    while(num!=0){
+        temp = num%2;
+        ara[++p]=temp;
+        num/=2;
+    }
+    return p;
+}
+int main()
+{
+    long long num;
+    while(scanf("%lld",&num)){
+        if(num==0)
+            return 0;
+        int p; p= binary(num);
+        printf("The parity of ");
+        int one = 0;
+        for(int i=p; i>=0; i--){
+            printf("%d",ara[i]);
+            if(ara[i]==1)
+                one++;
+        }
+        printf(" is %d (mod 2).\n",one);
+    }
+    return 0;
+}

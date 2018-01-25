@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    string str;
+    while(cin>>str){
+        int len = str.length();
+        for(int i=0; i<len; i++){
+            if(str.at(i)=='A'||str.at(i)=='B'||str.at(i)=='C'||str.at(i)=='2')
+                cout<<"2";
+            else if(str.at(i)=='D'||str.at(i)=='E'||str.at(i)=='F'||str.at(i)=='3')
+                cout<<"3";
+            else if(str.at(i)=='G'||str.at(i)=='H'||str.at(i)=='I'||str.at(i)=='4')
+                cout<<"4";
+            else if(str.at(i)=='J'||str.at(i)=='K'||str.at(i)=='L'||str.at(i)=='5')
+                cout<<"5";
+            else if(str.at(i)=='M'||str.at(i)=='N'||str.at(i)=='O'||str.at(i)=='6')
+                cout<<"6";
+            else if(str.at(i)=='P'||str.at(i)=='Q'||str.at(i)=='R'||str.at(i)=='S'||str.at(i)=='7')
+                cout<<"7";
+            else if(str.at(i)=='T'||str.at(i)=='U'||str.at(i)=='V'||str.at(i)=='8')
+                cout<<"8";
+            else if(str.at(i)=='W'||str.at(i)=='X'||str.at(i)=='Y'||str.at(i)=='Z'||str.at(i)=='9')
+                cout<<"9";
+            else
+                cout<<str.at(i);
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}

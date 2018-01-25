@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cctype>
+#include<cmath>
+#include<cstdlib>
+#include<cstring>
+using namespace std;
+int ara[3218173]={0};
+void primeG(void)
+{
+    ara[0]=1;
+    for(int i=4; i<=3218173; i+=2)
+        ara[i] = 1;
+    int p = (int)sqrt(3218173);
+    for(int i=3; i<=p; i+=2){
+        if(ara[i]==0){
+            for(int j=i+i; j<=3218173; j+=i)
+                ara[j]=1;
+        }
+    }
+}
+int main()
+{
+
+    primeG();
+    char str[30];
+    while(cin>>str){
+        int len = strlen(str);
+        int sum = 0;
+        for(int i=0; i<len; i++){
+            if(str[i]>96 && str[i]<123){
+                sum += (str[i]-96);
+            }
+            else if(str[i]>=65 && str[i]<=90){
+                sum += (str[i]-38);
+            }
+        }
+        if(ara[sum]==0)
+            cout<<"It is a prime word."<<endl;
+        else
+            cout<<"It is not a prime word."<<endl;
+    }
+    return 0;
+}

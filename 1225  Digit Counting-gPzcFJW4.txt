@@ -1,0 +1,50 @@
+#include<iostream>
+#include<set>
+#include<cstdio>
+#include<cmath>
+#include<vector>
+#include<algorithm>
+#include<fstream>
+using namespace std;
+vector <int > v[10002],v2;
+void function(int a)
+{
+    v[a] = v[a-1];
+    int t = a;int temp;
+    while(t!=0){
+        temp = t%10;
+        v[a][temp]++;
+        t/=10;
+    }
+}
+void generate()
+{
+    for(int i=0; i<10; i++)
+        v[0].push_back(0);
+    for(int i=1; i<10002; i++){
+        function(i);
+    }
+}
+void print(vector <int > v)
+{
+    int len = v.size();
+    for(int i=0; i<len; i++){
+        cout<<v[i];
+        if(i==len-1)
+            cout<<endl;
+        else
+            cout<<" ";
+    }
+}
+int main()
+{
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+    generate();
+    int test,n;cin>>test;
+    while(test--){
+        cin>>n;
+        print(v[n]);
+    }
+    return 0;
+}

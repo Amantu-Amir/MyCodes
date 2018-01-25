@@ -1,0 +1,33 @@
+#include<iostream>
+#include<set>
+#include<cstdio>
+#include<fstream>
+#define size 1000005
+using namespace std;
+long long int ara[size];
+void generate()
+{
+    ara[3] = 0;ara[4] = 1;ara[5] = 2;
+    int x = 2;
+    for(int i=6; i<size-1; i++,x++){
+        ara[i] = ara[i-1] + x;
+        i++;
+        ara[i] = ara[i-1] + x;
+    }
+    long long int sum = 0;
+    for(int i=3; i<size; i++){
+        sum+=ara[i];
+        ara[i] = sum;
+    }
+}
+int main()
+{
+    generate();
+    int n;
+    while(cin>>n){
+        if(n<3)
+            return 0;
+        cout<<ara[n]<<endl;
+    }
+    return 0;
+}

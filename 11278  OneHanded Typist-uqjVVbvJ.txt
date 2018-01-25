@@ -1,0 +1,181 @@
+#include<iostream>
+#include<vector>
+#include<cstdio>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+    string s;char c;
+    while(getline(cin,s)){
+        int len = s.size();
+        for(int i=0; i<len; i++){
+            c = s[i];
+            if(c=='4')
+                cout<<'q';
+            else if(c=='5')
+                cout<<'j';
+            else if(c=='6')
+                cout<<'l';
+            else if(c=='7')
+                cout<<'m';
+            else if(c=='8')
+                cout<<'f';
+            else if(c=='9')
+                cout<<'p';
+            else if(c=='0')
+                cout<<'/';
+            else if(c=='-')
+                cout<<'[';
+            else if(c=='=')
+                cout<<']';
+            else if(c=='q')
+                cout<<'4';
+            else if(c=='w')
+                cout<<'5';
+            else if(c=='e')
+                cout<<'6';
+            else if(c=='r')
+                cout<<'.';
+            else if(c=='t')
+                cout<<'o';
+            else if(c=='y')
+                cout<<'r';
+            else if(c=='u')
+                cout<<'s';
+            else if(c=='i')
+                cout<<'u';
+            else if(c=='o')
+                cout<<'y';
+            else if(c=='p')
+                cout<<'b';
+            else if(c=='[')
+                cout<<';';
+            else if(c==']')
+                cout<<'=';
+            else if(c=='a')
+                cout<<'7';
+            else if(c=='s')
+                cout<<'8';
+            else if(c=='d')
+                cout<<'9';
+            else if(c=='f')
+                cout<<'a';
+            else if(c=='g')
+                cout<<'e';
+            else if(c=='j')
+                cout<<'t';
+            else if(c=='k')
+                cout<<'d';
+            else if(c=='l')
+                cout<<'c';
+            else if(c==';')
+                cout<<'k';
+            else if(c==39)///
+                cout<<'-';
+            else if(c=='z')
+                cout<<'0';
+            else if(c=='x')
+                cout<<'z';
+            else if(c=='c')
+                cout<<'x';
+            else if(c=='v')
+                cout<<',';
+            else if(c=='b')
+                cout<<'i';
+            else if(c=='m')
+                cout<<'w';
+            else if(c==',')
+                cout<<'v';
+            else if(c=='.')
+                cout<<'g';
+            else if(c=='/')
+                cout<<"'";
+            else if(c=='$')
+                cout<<'Q';
+            else if(c=='%')
+                cout<<'J';
+            else if(c=='^')
+                cout<<'L';
+            else if(c=='&')
+                cout<<'M';
+            else if(c=='*')
+                cout<<'F';
+            else if(c=='(')
+                cout<<'P';
+            else if(c==')')
+                cout<<'?';
+            else if(c=='_')
+                cout<<'{';
+            else if(c=='+')
+                cout<<'}';
+            else if(c=='Q')
+                cout<<'$';
+            else if(c=='W')
+                cout<<'%';
+            else if(c=='E')
+                cout<<'^';
+            else if(c=='R')
+                cout<<'>';
+            else if(c=='T')
+                cout<<'O';
+            else if(c=='Y')
+                cout<<'R';
+            else if(c=='U')
+                cout<<'S';
+            else if(c=='I')
+                cout<<'U';
+            else if(c=='O')
+                cout<<'Y';
+            else if(c=='P')
+                cout<<'B';
+            else if(c=='{')
+                cout<<':';
+            else if(c=='}')
+                cout<<'+';
+            else if(c=='A')
+                cout<<'&';
+            else if(c=='S')
+                cout<<'*';
+            else if(c=='D')
+                cout<<'(';
+            else if(c=='F')
+                cout<<'A';
+            else if(c=='G')
+                cout<<'E';
+            else if(c=='J')
+                cout<<'T';
+            else if(c=='K')
+                cout<<'D';
+            else if(c=='L')
+                cout<<'C';
+            else if(c==':')
+                cout<<'K';
+            else if(c=='"')
+                cout<<'_';
+            else if(c=='Z')
+                cout<<')';
+            else if(c=='X')
+                cout<<'Z';
+            else if(c=='C')
+                cout<<'X';
+            else if(c=='V')
+                cout<<'<';
+            else if(c=='B')
+                cout<<'I';
+            else if(c=='M')
+                cout<<'W';
+            else if(c=='<')
+                cout<<'V';
+            else if(c=='>')
+                cout<<'G';
+            else if(c=='?')
+                cout<<'"';
+            else 
+                cout<<c;
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}

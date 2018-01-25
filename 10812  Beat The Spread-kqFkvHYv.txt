@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int test;
+    long long int sum,dif,score1,score2,dbl;
+    cin>>test;
+    for(int i = 1; i<= test; i++){
+        cin>>sum>>dif;
+        dbl = ( sum - dif );
+        score1 = ( dbl / 2 );
+        score2 = score1 + dif;
+        if(score1+score2 == sum && score1>=0 && score2>=0)
+            cout<<score2<<" "<<score1<<endl;
+        else
+            cout<<"impossible"<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+    char str[25];
+    while(cin>>str){
+        int len = strlen(str);
+        int ara[len];int ind=-1;
+        for(int i=0; i<len; i++){
+        if(str[i]=='B'||str[i]=='F'||str[i]=='P'||str[i]=='V')
+            ara[++ind]=1;
+        else if(str[i]=='C'||str[i]=='G'||str[i]=='J'||str[i]=='K'||str[i]=='Q'||str[i]=='S'||str[i]=='X'||str[i]=='Z')
+            ara[++ind]=2;
+        else if(str[i]=='D'||str[i]=='T')
+            ara[++ind]=3;
+        else if(str[i]=='L')
+            ara[++ind]=4;
+        else if(str[i]=='M'||str[i]=='N')
+            ara[++ind]=5;
+        else if(str[i]=='R')
+            ara[++ind]=6;
+        else
+            ara[++ind]=0;
+        }
+        if(ara[0]!=0)
+            cout<<ara[0];
+        for(int i=1; i<=ind; i++){
+            if(ara[i]!=ara[i-1] && ara[i]!=0)
+                cout<<ara[i];
+        }
+        cout<<endl;
+    }
+    return 0;
+}
