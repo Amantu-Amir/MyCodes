@@ -1,0 +1,58 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main  {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        BigInteger barr[] = new BigInteger[367];
+        barr[0] = BigInteger.ONE;
+        int ara[][] = new int[367][10];
+        for(int i=1; i<367; i++){
+            barr[i] = barr[i-1].multiply(BigInteger.valueOf(i));
+            String s = barr[i].toString();
+            int len = s.length();
+            for(int j=0; j<len; j++){
+                if(s.charAt(j) == '0')
+                    ara[i][0]++;
+                else if(s.charAt(j) == '1')
+                    ara[i][1]++;
+                else if(s.charAt(j) == '2')
+                    ara[i][2]++;
+                else if(s.charAt(j) == '3')
+                    ara[i][3]++;
+                else if(s.charAt(j) == '4')
+                    ara[i][4]++;
+                else if(s.charAt(j) == '5')
+                    ara[i][5]++;
+                else if(s.charAt(j) == '6')
+                    ara[i][6]++;
+                else if(s.charAt(j) == '7')
+                    ara[i][7]++;
+                else if(s.charAt(j) == '8')
+                    ara[i][8]++;
+                else if(s.charAt(j) == '9')
+                    ara[i][9]++;
+            }
+        }
+        int n;
+        while(true){
+            n = sc.nextInt();
+            if(n == 0)
+                break;
+            else {
+                System.out.println(n+"! --");
+                System.out.print("   (0)");System.out.printf("%5d",ara[n][0]);
+                System.out.print("    (1)");System.out.printf("%5d",ara[n][1]);
+                System.out.print("    (2)");System.out.printf("%5d",ara[n][2]);
+                System.out.print("    (3)");System.out.printf("%5d",ara[n][3]);
+                System.out.print("    (4)");System.out.printf("%5d\n",ara[n][4]);
+                System.out.print("   (5)");System.out.printf("%5d",ara[n][5]);
+                System.out.print("    (6)");System.out.printf("%5d",ara[n][6]);
+                System.out.print("    (7)");System.out.printf("%5d",ara[n][7]);
+                System.out.print("    (8)");System.out.printf("%5d",ara[n][8]);
+                System.out.print("    (9)");System.out.printf("%5d\n",ara[n][9]);
+            }
+        }
+    }
+}
